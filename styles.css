@@ -1,0 +1,1128 @@
+:root {
+  --bg-dark: #0B0C10;
+  --bg-surface: #121519;
+  --text-main: #F8F9FA;
+  --text-muted: #B3B7C1;
+  --accent: #D72638;
+  --accent-alt: #FFC857;
+  --glass: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(255, 255, 255, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding-top: 82px;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  color: var(--text-main);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.02), transparent 22%), linear-gradient(180deg, #0B0C10 0%, #07080C 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 15% 15%, rgba(255, 200, 87, 0.05), transparent 12%), radial-gradient(circle at 85% 20%, rgba(219, 27, 51, 0.04), transparent 14%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.section-heading {
+  margin-bottom: 2.25rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.section-heading::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 4px;
+  height: 2.4rem;
+  background: linear-gradient(180deg, var(--accent-alt), var(--accent));
+  border-radius: 99px;
+}
+
+.section-heading h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.04em;
+}
+
+.section-heading p {
+  color: var(--text-muted);
+  max-width: 760px;
+}
+
+section {
+  scroll-margin-top: 110px;
+}
+
+.navbar-custom {
+  z-index: 1030;
+  background: rgba(11, 12, 16, 0.78) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.navbar-custom .navbar-brand {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 1rem;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 0.35rem;
+}
+
+.navbar-custom .nav-link.active:not(.dropdown-toggle)::after {
+  content: '';
+  position: absolute;
+  bottom: -0.35rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-alt), var(--accent));
+  border-radius: 10px;
+}
+
+.navbar-custom .nav-link {
+  position: relative;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 0.35rem;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transition: transform 0.2s ease, border-color 0.2s ease; /* Thêm transition để hiệu ứng hover mượt mà hơn */
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+  transform: scale(1.04);
+  border-color: rgba(255, 200, 87, 0.35) !important; /* Thêm !important để chắc chắn đè được cấu hình gốc */
+  outline: none; /* Xóa đường viền xanh mặc định của trình duyệt khi focus */
+}
+
+.navbar-toggler-icon {
+  /* ĐÃ XÓA DÒNG FILTER LÀM ĐEN ICON */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar-custom {
+  background: rgba(11, 12, 16, 0.70) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 82px;
+}
+
+.navbar-custom .container-fluid {
+  align-items: center;
+}
+
+.navbar-custom .navbar-collapse {
+  align-items: center;
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+  color: var(--text-main) !important;
+  letter-spacing: 0.02em;
+}
+
+.navbar-custom .nav-link {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.navbar-custom .nav-link.active,
+.navbar-custom .nav-link.active:hover,
+.navbar-custom .nav-link.active:focus {
+  color: var(--accent-alt) !important;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus {
+  color: var(--accent);
+}
+
+.navbar-end {
+  flex: 0 0 220px;
+  width: 220px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-end {
+    flex: 0 0 auto;
+    width: auto;
+    justify-content: flex-end;
+  }
+}
+
+.btn-pill {
+  border-radius: 50px;
+  padding: 0.9rem 2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-alt), var(--accent));
+  border: 1px solid transparent;
+  box-shadow: 0 18px 36px rgba(215, 38, 56, 0.18);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #ffc857, #d72638);
+  border-color: transparent;
+  box-shadow: 0 22px 44px rgba(215, 38, 56, 0.25);
+}
+
+.btn-outline-frost {
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+}
+
+.btn-outline-frost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-outline-frost:active,
+.btn-outline-frost:focus {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-pill {
+  backdrop-filter: blur(8px);
+}
+
+.btn-pill {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(215, 38, 56, 0.2);
+}
+
+.btn-pill:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 200, 87, 0.24);
+}
+
+.btn-pill:active {
+  transform: translateY(0);
+}
+
+.newsletter-section {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.newsletter-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(30px);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 2rem;
+  min-height: 340px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 36px 100px rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.team-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 40%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+
+  image-rendering: -moz-crisp-edges;         /* Dành cho Firefox cũ */
+  image-rendering: -webkit-crisp-edges;      /* Dành cho Safari cũ */
+  image-rendering: pixelated;                 /* Tiêu chuẩn hiện đại (Chrome, Edge, Safari mới) */
+  image-rendering: crisp-edges;               /* Dự phòng tối ưu hiệu năng */
+}
+
+.team-card h3 {
+  position: relative;
+  z-index: 1;
+  font-family: 'Fredoka', serif;
+  margin-bottom: 0.5rem;
+}
+
+.team-role {
+  color: var(--accent-alt);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.82rem;
+  margin-bottom: 1rem;
+}
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 200, 87, 0.18), rgba(215, 38, 56, 0.16));
+  border-color: rgba(255, 200, 87, 0.25);
+}
+
+.social-icon:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 200, 87, 0.18);
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 82px);
+  display: flex;
+  align-items: center;
+  color: var(--text-main);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  transition: background-position 0.35s ease, transform 0.35s ease;
+
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 12, 16, 0.16), rgba(11, 12, 16, 0.82) 68%);
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.32);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 200, 87, 0.12), transparent 24%), linear-gradient(90deg, rgba(11, 12, 16, 0.45), transparent 45%);
+  pointer-events: none;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1s ease forwards;
+}
+
+.hero h1 {
+  text-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+.hero p.lead {
+  color: rgba(248, 249, 250, 0.86);
+  max-width: 44rem;
+}
+
+.hero h1 {
+  font-family: 'Fredoka', serif;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+}
+
+.hero p.lead {
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.section-heading {
+  margin-bottom: 2.75rem;
+}
+
+.section-heading h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+}
+
+.section-heading p {
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 2rem;
+  backdrop-filter: blur(24px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card-glass:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.22);
+}
+
+.card-glass h2,
+.card-glass h3 {
+  transition: color 0.25s ease;
+}
+
+.card-glass:hover h2,
+.card-glass:hover h3 {
+  color: var(--accent-alt);
+}
+
+.hero h1 {
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.pixel-art-grid {
+  margin-top: 1.5rem;
+}
+
+.pixel-art-grid .pixel-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 24px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pixel-art-grid .pixel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.pixel-art-grid .pixel-item:hover img {
+  transform: scale(1.08) rotate(-0.3deg);
+}
+
+.pixel-art-grid .pixel-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.32);
+}
+
+.pixel-art-grid .pixel-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(11, 12, 16, 0.72));
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+footer {
+  padding: 3rem 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer .footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+footer .footer-links a:hover {
+  color: var(--text-main);
+}
+
+footer .footer-brand {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+footer .footer-note {
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+/* Sử dụng lại hiệu ứng float cũ */
+.floating-mascot {
+  position: absolute;
+  width: 200px; /* Độ to của mascot */
+  z-index: 10;
+  image-rendering: pixelated;
+  pointer-events: none;
+  animation: float-mascot 4s ease-in-out infinite;
+}
+
+/* Vị trí cho thẻ About (thẻ dài bên trái) */
+.mascot-about {
+  bottom: -70px;
+  right: -60px; /* Đặt lùi vào trong một chút cho đẹp */
+}
+
+/* Vị trí cho thẻ Studio Game (thẻ bên phải) */
+.mascot-game {
+  bottom: -70px;
+  right: -40px;
+}
+
+/* Làm nổi bật nút mũi tên tua ảnh trong block game */
+.carousel-control-prev, .carousel-control-next {
+  width: 10%;
+  opacity: 0.7;
+}
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  opacity: 1;
+}
+
+.max-width-desc {
+  max-width: 600px;
+  /* Thêm dòng dưới để tạo khoảng trống bên phải né mascot */
+  padding-right: 140px; 
+}
+
+/* Định dạng ảnh ngang 16:9 cho Screenshots */
+.landscape-item {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.landscape-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+/* Tinh chỉnh nút bấm Carousel cho hài hòa với game */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 8%;
+  background: linear-gradient(to right, rgba(0,0,0,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-control-next {
+  background: linear-gradient(to left, rgba(0,0,0,0.4), transparent);
+}
+
+/* Chỉ hiện mũi tên khi người dùng rê chuột vào vùng ảnh */
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+@keyframes float-mascot {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  /* Ép thanh nav cha giữ nguyên chiều cao cố định, không bị menu con kéo giãn */
+  .navbar-custom {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .navbar-custom .navbar-collapse {
+    background: #0f0f0f; 
+    border-radius: 16px;
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    
+    /* BIẾN MENU THÀNH LỚP ĐỘC LẬP: Định vị để cách xuống dưới */
+    position: absolute;
+    top: 100%;           /* Nằm ngay sát cạnh dưới của thanh nav */
+    left: 15px;          /* Cách lề trái một chút cho đẹp */
+    right: 15px;         /* Cách lề phải một chút cho đẹp */
+    margin-top: 4px;    /* TĂNG KHOẢNG CÁCH: Muốn cách xuống thêm bao nhiêu bạn tăng dòng này nhé */
+    
+    /* Khử giật lag tối ưu phần cứng */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: height, opacity;
+  }
+
+  /* Làm mượt hiệu ứng mở ra/thu vào của Bootstrap */
+  .collapsing {
+    transition: height 0.25s ease-in-out !important; /* Ép thời gian trượt nhanh và mượt hơn */
+  }
+
+  .navbar-custom .nav-item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .max-width-desc {
+    padding-right: 90px; /* Thu hẹp khoảng né khi mascot nhỏ lại */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero {
+    padding-top: 100px;
+    min-height: 80vh;
+  }
+
+  .hero-content {
+    padding-bottom: 4rem;
+  }
+
+  .navbar-custom {
+    border-bottom: none;
+  }
+
+  .btn-pill {
+    width: 100%;
+  }
+
+  .navbar-end {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 10vw, 3.6rem);
+    letter-spacing: -0.02em;
+  }
+
+  .hero p.lead {
+    font-size: 1rem;
+  }
+
+  .btn-pill {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card-glass {
+    padding: 1.5rem;
+  }
+
+  .pixel-art-grid .pixel-item {
+    aspect-ratio: auto;
+    min-height: 220px;
+  }
+
+  .max-width-desc {
+    padding-right: 0; 
+  }
+}
+
+@media (min-width: 992px) {
+  .row-cols-lg-7 > * {
+    flex: 0 0 auto;
+    width: 14.2857% !important; /* 100% chia cho 7 bằng 14.2857% */
+  }
+}
+
+/* ==========================================================================
+   TÙY CHỈNH THANH CUỘN (SCROLLBAR) CHO LATEST PATCH LOGS
+   ========================================================================== */
+
+/* 1. Định dạng vùng chứa thanh cuộn */
+.custom-scroll-logs::-webkit-scrollbar {
+  width: 5px; /* Độ rộng siêu mảnh giúp giao diện thanh thoát */
+}
+
+/* 2. Định dạng phần nền bên dưới của thanh cuộn (Track) */
+.custom-scroll-logs::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03); /* Nền mờ tối, gần như hòa vào hộp card-glass */
+  border-radius: 20px;
+}
+
+/* 3. Định dạng cục kéo cục cuộn (Thumb) */
+.custom-scroll-logs::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12); /* Màu xám mờ nhẹ nhàng ở trạng thái tĩnh */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Tạo viền cực mỏng quanh nút kéo */
+  transition: background 0.2s ease;
+}
+
+/* 4. Hiệu ứng đổi màu khi người dùng rê chuột vào thanh cuộn (Hover) */
+.custom-scroll-logs::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-alt); /* Chuyển sang màu vàng đặc trưng của studio khi tương tác */
+}
+
+/* Hỗ trợ hiển thị thanh cuộn mượt cho các trình duyệt khác (Firefox) */
+.custom-scroll-logs {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) rgba(255, 255, 255, 0.03);
+}
+
+/* Đảm bảo khung thẻ card-glass làm tâm điểm cho các phần tử absolute */
+.game-card-with-mascot {
+  position: relative;
+}
+
+/* Định vị chú Mascot ở góc trên bên phải */
+.game-card-mascot {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: 150px;
+  height: 150px;
+  transform: rotate(5deg);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  
+  /* Thay đổi 2 dòng này để giấu chim xuống dưới chữ */
+  opacity: 0.12;  /* Hạ mờ hẳn xuống mức 12%, chữ đè lên đọc vẫn rõ mồn một */
+  z-index: 0;     /* Đẩy lùi về sau (chữ mặc định sẽ đè lên trên) */
+}
+
+/* Hiệu ứng mượt mà khi người dùng di chuột vào card */
+.game-card-with-mascot:hover .game-card-mascot {
+  opacity: 0.35; /* Chỉ tăng lên mức vừa phải để không làm lu mờ chữ */
+  transform: scale(1.05) rotate(0deg);
+}
+
+.game-card-mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Giữ nguyên tỷ lệ chim đại bàng không bị méo */
+  image-rendering: pixelated; 
+}
+
+/* Container tạo khoảng cách cho hàng mạng xã hội */
+.studio-social-links {
+  margin-top: 15px;
+  padding: 10px;
+}
+
+/* Kích cỡ khối bọc ngoài nút ảnh */
+.social-img-btn {
+  display: inline-block;
+  width: 96px;  /* Có thể tăng giảm tùy chỉnh theo kích thước file ảnh của bạn */
+  height: 96px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Xử lý ảnh nút pixel không bị mờ nhòe */
+.social-img-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated; /* Giúp giữ độ sắc nét vuông vức của đồ họa pixel art */
+}
+
+/* Hiệu ứng nhấc nhẹ và tăng sáng khi hover */
+.social-img-btn:hover {
+  transform: scale(1.1) translateY(-3px);
+  filter: brightness(1.2);
+}
+
+/* ==========================================================================
+   CSS CHO PHẦN VINH DANH & MODAL DONATE (CHỈ CÓ QR BANK)
+   ========================================================================== */
+
+/* Thẻ bọc bảng vinh danh */
+.honor-board {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 25px;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.board-header {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
+}
+
+.board-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.board-header h3 {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.board-header p {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Danh sách tên người donate */
+.backer-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  max-height: 250px; 
+  overflow-y: auto;
+}
+
+/* Cấu trúc chung của mỗi dòng */
+.backer-list li {
+  display: flex;
+  flex-direction: row;          /* Mặc định nằm cùng một hàng trên máy tính */
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;           /* Tăng nhẹ padding cho dễ nhìn */
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  gap: 15px;                    /* Tạo khoảng cách an toàn tối thiểu giữa tên và chữ danh dự */
+}
+
+.backer-list li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(3px);
+}
+
+/* Định dạng phần chữ Tên */
+.backer-name {
+  color: #e0e0e0;
+  font-weight: 500;
+  white-space: nowrap;          /* Giữ cho tên không bị rớt dòng lẻ loi */
+}
+
+/* Định dạng phần chữ Danh dự (Hành động) */
+.backer-honor {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #a0a0a0; 
+  font-weight: 400;
+  text-align: right;            /* Mặc định căn lề phải trên máy tính */
+}
+
+/* Các nhãn danh hiệu (Badges) */
+.backer-badge {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+}
+.badge-gold { background: #ffd700; color: #000; font-weight: bold; }
+.badge-silver { background: #c0c0c0; color: #000; }
+
+.backer-amount {
+  font-size: 0.85rem;
+  color: #5dade2; 
+  font-weight: bold;
+}
+
+/* Giao diện Bảng nổ (Modal) mã QR đơn lẻ */
+.donate-modal-content {
+  background: #121212 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 24px !important;
+  padding: 10px;
+}
+
+/* Khối bọc mã QR đơn lẻ - CĂN GIỮA TUYỆT ĐỐI */
+.qr-card-single {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  
+  /* Căn giữa ảnh QR bên trong khối */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+.qr-img {
+  max-width: 210px;
+  width: 100%;
+  height: auto;
+  border-radius: 24px; /* Tăng từ 14px lên 24px để bo tròn sâu hơn, cắt đứt hoàn toàn các vệt đen ở góc */
+  border: 4px solid #ffffff;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Tinh chỉnh lại phần bảng chữ bên dưới cho ôm sát form */
+.qr-info {
+  width: 100%;                /* Ép bảng thông tin chữ trải đều bằng chiều ngang với ảnh */
+  margin-top: 15px;
+}
+
+/* Tùy chỉnh thanh cuộn siêu mỏng cho danh sách Backer */
+.backer-list::-webkit-scrollbar { width: 5px; }
+.backer-list::-webkit-scrollbar-track { background: transparent; }
+.backer-list::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+
+/* ==========================================================================
+   TÙY BIẾN CUỘN DANH SÁCH (SCROLLBAR) CHO BACKER LIST
+   ========================================================================== */
+
+/* 1. Giới hạn chiều cao cố định cho danh sách */
+.backer-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  
+  /* Đặt chiều cao tối đa (Bạn có thể tăng lên 300px hoặc 350px tùy ý) */
+  max-height: 265px; 
+  
+  /* Bật tính năng tự động xuất hiện thanh cuộn khi danh sách vượt quá chiều cao */
+  overflow-y: auto;
+  
+  /* Tạo khoảng cách đệm bên phải để danh sách không dính sát vào thanh cuộn */
+  padding-right: 8px;
+  
+  /* Bật tính năng cuộn mượt mà trên các thiết bị di động */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 2. Định dạng thanh cuộn tổng thể (Độ rộng mỏng tinh tế) */
+.backer-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 3. Định dạng phần rãnh chạy của thanh cuộn */
+.backer-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+/* 4. Định dạng cục con lăn cuộn lên xuống */
+.backer-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15); /* Màu trắng mờ mặc định */
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+/* 5. Đổi màu đậm hơn cho con lăn khi người dùng rê chuột vào */
+.backer-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3); /* Sáng rõ hơn khi tương tác */
+}
+
+/* Tùy chỉnh nút Ko-fi dạng outline màu Xanh Lá */
+.btn-outline-kofi {
+  color: #2ecc71; /* Màu xanh lá tươi tắn, chuẩn giao diện tối */
+  background: transparent;
+  border: 1px solid rgba(46, 204, 113, 0.4);
+  transition: all 0.25s ease-in-out;
+}
+
+/* Hiệu ứng khi rê chuột vào nút Ko-fi xanh lá */
+.btn-outline-kofi:hover {
+  color: #121212; /* Đổi màu chữ sang tối để nổi bật trên nền xanh khi hover */
+  background: #2ecc71;
+  border-color: #2ecc71;
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.4); /* Phát sáng nhẹ tông xanh */
+  transform: translateY(-2px);
+}
+
+/* Trạng thái khi click chuột */
+.btn-outline-kofi:active {
+  transform: translateY(0);
+}
+
+/* Dòng cảnh báo bản quyền hình ảnh ở Footer */
+.copyright-notice {
+  font-size: 0.8rem;
+  color: #b2b2b2;
+  font-style: italic;
+  line-height: 1.4;
+  border-left: 2px solid rgba(255, 94, 91, 0.5); /* Tạo một vạch đỏ mảnh bên trái tạo điểm nhấn */
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.copyright-notice .text-danger {
+  font-weight: 600;
+  font-style: normal;
+}
+/* 2. Màn hình Laptop nhỏ / Máy tính bảng cỡ lớn (Dưới 1200px) */
+@media (max-width: 1199.98px) {
+  .game-card-mascot {
+    width: 120px;      /* Thu nhỏ vừa phải để không lấn sân sang tiêu đề game */
+    height: 120px;
+    top: 15px;
+    right: 20px;
+  }
+}
+
+/* 3. Màn hình Máy tính bảng (Tablet dọc - Dưới 992px) */
+@media (max-width: 991.98px) {
+  .game-card-mascot {
+    width: 100px;      /* Thu nhỏ tiếp vì không gian bề ngang của Card lúc này bị hẹp lại */
+    height: 100px;
+    top: 15px;
+    right: 15px;
+    opacity: 0.2;      /* Giảm thêm độ mờ để chữ đè lên đọc vẫn rõ */
+  }
+}
+
+/* 4. Màn hình Điện thoại di động (Mobile - Dưới 768px) */
+/* Hạ thêm một cỡ cho riêng mascot phần About trên điện thoại */
+@media (max-width: 767.98px) {
+  .floating-mascot {
+    width: 100px !important; /* Hạ từ 75px xuống hẳn 50px để siêu nhỏ gọn */
+    height: auto !important;
+  }
+
+  .mascot-about {
+    bottom: -15px !important; /* Thu hẹp khoảng cách lệch viền cho vừa vặn */
+    right: 5px !important;    /* Ép sát vào lề hơn */
+  }
+
+  .mascot-game {
+    bottom: -15px !important; 
+    right: 5px !important;
+  }
+}
+
+/* 5. Màn hình điện thoại siêu nhỏ (Dưới 400px - ví dụ iPhone SE) */
+@media (max-width: 399.98px) {
+  .game-card-mascot {
+    display: none;     /* Màn hình quá bé thì ẩn đi hoàn toàn để trải nghiệm đọc mô tả game là tốt nhất */
+  }
+}
+
+/* 📱 XỬ LÝ RIÊNG CHO MÀN HÌNH ĐIỆN THOẠI (DƯỚI 576PX) */
+@media (max-width: 576px) {
+  .backer-list li {
+    flex-direction: column;     /* Chuyển từ xếp hàng ngang sang hàng dọc */
+    align-items: flex-start;    /* Căn tất cả chữ dạt về lề trái */
+    gap: 4px;                   /* Thu hẹp khoảng cách giữa Tên và Danh dự */
+    padding: 10px 12px;
+  }
+  
+  .backer-name {
+    white-space: normal;        /* Cho phép tên dài tự xuống dòng nếu cần trên mobile */
+  }
+
+  .backer-honor {
+    text-align: left;           /* Đổi từ căn phải sang căn trái cho thuận mắt */
+    font-size: 0.8rem;          /* Thu nhỏ nhẹ chữ danh dự trên điện thoại */
+    opacity: 0.8;
+  }
+  
+  /* Áp dụng tương tự cho bảng số tiền bên phải để đồng bộ giao diện mobile */
+  .backer-amount {
+    text-align: left;
+    font-size: 0.85rem;
+  }
+}
