@@ -1131,3 +1131,50 @@ footer .footer-note {
     font-size: 0.85rem;
   }
 }
+
+/* ==========================================================================
+   TỐI ƯU HÓA HIỆU NĂNG TỐI ĐA CHO MOBILE (CHỐNG LAG)
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* 1. Đơn giản hóa hình nền, tắt hiệu ứng gradient tỏa tròn nặng nề */
+  body {
+    background: #0B0C10 !important; /* Dùng màu đen trơn hoàn toàn */
+  }
+  
+  body::before {
+    display: none !important; /* Tắt hẳn lớp nền ảo phía sau trên điện thoại */
+  }
+
+  /* 2. Giảm tải sức mạnh GPU cho các thẻ kính (Card Glass) */
+  .card-glass, 
+  .newsletter-card,
+  .team-card {
+    backdrop-filter: none !important; /* Tắt làm mờ xuyên thấu */
+    -webkit-backdrop-filter: none !important;
+    background: rgba(20, 22, 28, 0.95) !important; /* Dùng màu nền xám tối đục thay cho kính mờ */
+    box-shadow: none !important; /* Tắt bóng đổ dìm máy */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* 3. Tối ưu thanh Menu điều hướng */
+  .navbar-custom {
+    backdrop-filter: blur(8px) !important; /* Chỉ giữ lại độ mờ rất nhẹ cho menu */
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+  }
+
+  /* 4. Tắt hiệu ứng lơ lửng của Mascot trên Mobile để tránh trình duyệt tính toán tọa độ liên tục */
+  .floating-mascot {
+    animation: none !important; 
+    transform: none !important;
+  }
+
+  /* 5. Tắt hiệu ứng Hover (bóng đổ, phóng to) không cần thiết trên màn hình cảm ứng */
+  .btn-pill:hover,
+  .card-glass:hover,
+  .team-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
