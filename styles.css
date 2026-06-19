@@ -34,6 +34,9 @@ body::before {
   pointer-events: none;
   background-image: radial-gradient(circle at 15% 15%, rgba(255, 200, 87, 0.05), transparent 12%), radial-gradient(circle at 85% 20%, rgba(219, 27, 51, 0.04), transparent 14%);
   z-index: 0;
+
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .hero-content {
@@ -145,7 +148,7 @@ a {
 
 .navbar-custom {
   background: rgba(11, 12, 16, 0.70) !important;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px); /* Giảm từ 20px xuống 12px */
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   min-height: 82px;
 }
@@ -264,7 +267,7 @@ a {
   border-radius: 28px;
   padding: 2rem;
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(12px);
 }
 
 .eyebrow {
@@ -439,7 +442,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 28px;
   padding: 2rem;
-  backdrop-filter: blur(24px);
+  backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
   transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
@@ -549,6 +552,8 @@ footer .footer-note {
   image-rendering: pixelated;
   pointer-events: none;
   animation: float-mascot 4s ease-in-out infinite;
+
+  will-change: transform;
 }
 
 /* Vị trí cho thẻ About (thẻ dài bên trái) */
