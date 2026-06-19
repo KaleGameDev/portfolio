@@ -722,6 +722,20 @@ footer .footer-note {
   .max-width-desc {
     padding-right: 0; 
   }
+
+  .hero::before {
+    /* Tắt cái bóng đổ khổng lồ gây lag tung máy */
+    box-shadow: none !important; 
+    
+    /* Chỉ giữ lại màu nền đen mờ đơn giản cho chữ dễ đọc */
+    background: rgba(11, 12, 16, 0.7) !important; 
+  }
+
+  /* 2. XỬ LÝ KHỐI HERO::AFTER */
+  .hero::after {
+    /* Tắt luôn khối gradient ánh sáng phụ này trên mobile vì nó đè lớp gây nặng */
+    display: none !important; 
+  }
 }
 
 @media (min-width: 992px) {
